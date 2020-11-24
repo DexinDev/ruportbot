@@ -58,32 +58,23 @@ class BotMessagesListener extends EventHandler
             return;
         }
 
-        $messageText = $update['message']['message'];
-        $memberId = $update['message']['user_id'];
-
-        $response = new BotResponseManager();
-        $response->makeResponse($memberId, $messageText);
-
-        /*$res = \json_encode($update, JSON_PRETTY_PRINT);
-
         try {
             yield $this->messages->sendMessage(['peer'            => $update,
                                                 'message'         => "<code>$res</code>",
                                                 'reply_to_msg_id' => isset($update['message']['id']) ? $update['message']['id'] : null,
                                                 'parse_mode'      => 'HTML'
             ]);
-            if (isset($update['message']['media']) && $update['message']['media']['_'] !== 'messageMediaGame') {
-                yield $this->messages->sendMedia(['peer'    => $update,
-                                                  'message' => $update['message']['message'],
-                                                  'media'   => $update
-                ]);
-            }
+            $messageText = $update['message']['message'];
+            $memberId = $update['message']['user_id'];
+
+            $response = new BotResponseManager();
+            $response->makeResponse($memberId, $messageText);
         } catch (RPCErrorException $e) {
             $this->report("Surfaced: $e");
         } catch (Exception $e) {
             if (\stripos($e->getMessage(), 'invalid constructor given') === false) {
                 $this->report("Surfaced: $e");
             }
-        }*/
+        }
     }
 }
