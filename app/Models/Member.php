@@ -33,6 +33,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool $is_confirmed
  * @property string|null $date_of_birth
  * @property bool|null $want_presents
+ * @property bool $is_working
+ * @method static \Illuminate\Database\Eloquent\Builder|Member whereIsWorking($value)
  */
 class Member extends Model
 {

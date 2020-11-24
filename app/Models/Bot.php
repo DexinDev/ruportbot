@@ -12,7 +12,7 @@ class Bot
 
     function __construct()
     {
-        $this->_madeline = new API('session.madeline');
+        $this->_madeline = new API('session.new');
     }
 
     public function auth()

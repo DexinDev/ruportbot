@@ -27,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Message whereMessageCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Message whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Models\Member|null $birthDayDude
+ * @property-read \App\Models\Member|null $member
  */
 
 class Message extends Model
@@ -35,6 +37,7 @@ class Message extends Model
         'ENTER_BDATE' => 0,
         'ENTER_NAME' => 1,
         'ENTER_PRESENT_SUM' => 2,
+        'NO_REQUEST' => 3,
     ];
 
     public function member() {

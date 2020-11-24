@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Helpers\BotHelper;
+use App\Helpers\BotMessagesListener;
 use danog\MadelineProto\API;
 use Illuminate\Routing\Controller as BaseController;
 
@@ -21,8 +21,8 @@ class MessageListenerController extends BaseController
             ],
         ];
 
-        $MadelineProto = new API('madeline.listener', $settings);
-        $MadelineProto->startAndLoop(BotHelper::class);
+        $MadelineProto = new API('bot.listener', $settings);
+        $MadelineProto->startAndLoop(BotMessagesListener::class);
     }
 
 }

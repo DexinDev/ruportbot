@@ -7,7 +7,7 @@ namespace App\Helpers;
 use danog\MadelineProto\EventHandler;
 use danog\MadelineProto\RPCErrorException;
 
-class BotHelper extends EventHandler
+class BotMessagesListener extends EventHandler
 {
     /**
      * @var int|string Username or ID of bot admin
