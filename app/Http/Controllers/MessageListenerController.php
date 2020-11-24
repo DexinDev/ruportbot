@@ -21,7 +21,7 @@ class MessageListenerController extends BaseController
             ],
         ];
 
-        $MadelineProto = new API('bot.listener', $settings);
+        $MadelineProto = new API('session.new', $settings);
         $MadelineProto->startAndLoop(BotMessagesListener::class);
     }
 
