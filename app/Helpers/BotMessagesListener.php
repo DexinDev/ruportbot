@@ -57,7 +57,14 @@ class BotMessagesListener extends EventHandler
         if ($update['message']['_'] === 'messageEmpty' || $update['message']['out'] ?? false) {
             return;
         }
-        $res = \json_encode($update, JSON_PRETTY_PRINT);
+
+        $messageText = $update['message']['message'];
+        $memberId = $update['message']['user_id'];
+
+        $response = new BotResponseManager();
+        $response->makeResponse($memberId, $messageText);
+
+        /*$res = \json_encode($update, JSON_PRETTY_PRINT);
 
         try {
             yield $this->messages->sendMessage(['peer'            => $update,
@@ -77,6 +84,6 @@ class BotMessagesListener extends EventHandler
             if (\stripos($e->getMessage(), 'invalid constructor given') === false) {
                 $this->report("Surfaced: $e");
             }
-        }
+        }*/
     }
 }
