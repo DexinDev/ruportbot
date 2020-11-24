@@ -47,6 +47,6 @@ class ChatMembersController extends BaseController
             BotSendMessage::dispatch($memberId, Message::CODES['ENTER_BDATE']);
         }
 
-        return $newMemberIds;
+        return $members;
     }
 }
