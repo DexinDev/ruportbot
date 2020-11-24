@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::match(['get', 'post'], '/', ['uses'=> 'AuthController@view'])->middleware('auth');
 Route::match(['get', 'post'], '/updateMembers', ['uses'=> 'ChatMembersController@updateMembers'])->middleware('auth');
 Route::match(['get', 'post'], '/runMessageListener', ['uses'=> 'MessageListenerController@start'])->middleware('auth');
+Route::match(['get', 'post'], '/stopMessageListener', ['uses'=> 'MessageListenerController@stop'])->middleware('auth');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
