@@ -58,6 +58,8 @@ class BotMessagesListener extends EventHandler
             return;
         }
 
+        $res = \json_encode($update, JSON_PRETTY_PRINT);
+
         try {
             yield $this->messages->sendMessage(['peer'            => $update,
                                                 'message'         => "<code>$res</code>",
