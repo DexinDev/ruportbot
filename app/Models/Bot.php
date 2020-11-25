@@ -10,9 +10,13 @@ class Bot
 {
     private $_madeline;
 
-    function __construct()
+    function __construct($madeline = false)
     {
-        $this->_madeline = new API('session.new');
+        if ($madeline) {
+            $this->_madeline = $madeline;
+        } else {
+            $this->_madeline = new API('session.new');
+        }
     }
 
     public function auth()
