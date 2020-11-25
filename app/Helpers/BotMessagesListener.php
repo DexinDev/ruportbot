@@ -12,7 +12,7 @@ class BotMessagesListener extends EventHandler
     /**
      * @var int|string Username or ID of bot admin
      */
-    const ADMIN = "ruportbot"; // Change this
+    const ADMIN = "Dexin"; // Change this
 
     /**
      * Get peer(s) where to report errors
@@ -59,14 +59,17 @@ class BotMessagesListener extends EventHandler
         }
 
         $messageText = $update['message']['message'];
-        $memberId = $update['message']['user_id'];
+        $memberId = $update['message']['from_id'];
         $response = new BotResponseManager();
-        $responseMessageCode = $response->getResponseMessageCode($memberId, $messageText);
+        $responseMessage = $response->getResponseMessage($memberId, $messageText);
+
+//        $res = \json_encode($update, JSON_PRETTY_PRINT);
 
         try {
             yield $this->messages->sendMessage([
                 'peer'            => $update,
-                'message'         => __('botMessages.$' . $responseMessageCode)
+                'message'         =>  $responseMessage
+//                'message'         => $res
             ]);
 
 
