@@ -6,6 +6,7 @@ namespace App\Helpers;
 
 use App\Jobs\BotSendMessage;
 use App\Models\Message;
+use Illuminate\Support\Facades\Validator;
 
 class BotResponseManager
 {
