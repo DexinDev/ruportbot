@@ -23,7 +23,7 @@ class BotResponseManager
 
     public function getResponseMessageCode($memberId, $messageText)
     {
-        $lastMessage = Message::whereMemberId($memberId)->latest();
+        $lastMessage = Message::whereMemberId($memberId)->latest('created_at')->first();
         if (!$lastMessage) {
             return Message::CODES['NO_REQUEST'];
         }
