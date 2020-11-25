@@ -14,7 +14,8 @@ class AuthController extends BaseController
     public function view()
     {
         $bot = new Bot();
-        return $bot->auth();
+        $statuses = $bot->auth();
+        dd($statuses);
     }
 
 }

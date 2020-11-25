@@ -21,8 +21,10 @@ class Bot
 
     public function auth()
     {
-        $this->_madeline->start();
-        return $this->_madeline->getSelf();
+        $statuses = [];
+        $statuses[] = $this->_madeline->start();
+        $statuses[] = $this->_madeline->getSelf();
+        return $statuses;
     }
 
     public function getChatMembers()
